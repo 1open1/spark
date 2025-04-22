@@ -76,9 +76,12 @@ SELECT w.weather_date, w.temperature, s.location FROM weather_data w JOIN statio
 SELECT * FROM weather_data WHERE temperature = (SELECT MAX(temperature) FROM weather_data);
 
 // views 
+CREATE VIEW temp_summary AS 
+SELECT station_id, AVG(temperature) AS avg_temp 
+FROM weather_data 
+GROUP BY station_id;
 
-
-
+SELECT * FROM temp_summary;
 
 
 
